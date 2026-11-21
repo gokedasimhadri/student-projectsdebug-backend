@@ -1,0 +1,20 @@
+# Render deployment config (render.yaml)
+services:
+  - type: web
+    name: mern-bug-arena-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false   # Set manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRE
+        value: 7d
+      - key: MAX_FILE_SIZE
+        value: 52428800
